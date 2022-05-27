@@ -1,3 +1,4 @@
+import AddIcon from "@mui/icons-material/Add";
 import {
   Alert,
   Card,
@@ -8,14 +9,12 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import AddIcon from "@mui/icons-material/Add";
 import useAxios from "axios-hooks";
 import { Link } from "react-router-dom";
 
 const SectionList = () => {
-  const [{ data, loading, error }] = useAxios(
-    "http://localhost:8080/api/v1/sections"
-  );
+  const [{ data, loading, error }] = useAxios("/sections");
+
   return (
     <Stack spacing={2}>
       <h2>Sections</h2>
