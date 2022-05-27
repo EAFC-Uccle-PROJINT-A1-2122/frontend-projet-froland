@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import useAxios from "axios-hooks";
+import { Link } from "react-router-dom";
 
 const SectionList = () => {
   const [{ data, loading, error }] = useAxios(
@@ -31,7 +32,12 @@ const SectionList = () => {
               <SectionListItem section={section} />
             ))}
           </Grid>
-          <Fab color="primary" aria-label="add">
+          <Fab
+            color="primary"
+            aria-label="add"
+            component={Link}
+            to="/sections/new"
+          >
             <AddIcon />
           </Fab>
         </>
