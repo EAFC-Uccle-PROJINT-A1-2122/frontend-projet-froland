@@ -29,7 +29,7 @@ const SectionList = () => {
         <>
           <Grid container spacing={2}>
             {data.map((section) => (
-              <SectionListItem section={section} />
+              <SectionListItem section={section} key={section.id} />
             ))}
           </Grid>
           <Fab
@@ -48,7 +48,7 @@ const SectionList = () => {
 
 const SectionListItem = ({ section }) => {
   return (
-    <Grid item sm={6} md={4} key={section.id}>
+    <Grid item sm={6} md={4}>
       <Card>
         <CardContent>
           <Typography variant="h5" component="div">
