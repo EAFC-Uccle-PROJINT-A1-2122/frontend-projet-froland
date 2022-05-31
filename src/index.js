@@ -13,6 +13,7 @@ root.render(
     domain="projint-froland-dev.eu.auth0.com"
     clientId="0JOX2y9JLWe7jzuXIBqRIPWZGOCF9X2A"
     redirectUri={window.location.origin}
+    audience="http://localhost:8080/api/v1"
   >
     <BrowserRouter>
       <React.StrictMode>
