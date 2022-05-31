@@ -14,7 +14,10 @@ import { Link } from "react-router-dom";
 
 const SectionList = () => {
   const [{ data, loading, error }] = useAxios(
-    "http://localhost:8080/api/v1/sections"
+    "http://localhost:8080/api/v1/sections",
+    {
+      useCache: false,
+    }
   );
   return (
     <Stack spacing={2}>
