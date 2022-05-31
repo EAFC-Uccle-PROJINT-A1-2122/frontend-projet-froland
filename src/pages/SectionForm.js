@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const SectionForm = () => {
   const [{ loading, error }, postData] = useAxios(
     {
-      url: "http://localhost:8080/api/v1/sections",
+      url: "/sections",
       method: "POST",
     },
     { manual: true }
