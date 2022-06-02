@@ -14,7 +14,7 @@ function App() {
     getAccessTokenSilently().then((token) => {
       const headers = { Authorization: `Bearer ${token}` };
       const axios = Axios.create({
-        baseURL: "http://localhost:8080/api/v1",
+        baseURL: process.env.REACT_APP_API_BASE_URL,
         headers: headers,
       });
       const defaultOptions = {
