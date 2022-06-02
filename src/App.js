@@ -2,7 +2,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { Alert } from "@mui/material";
 import Axios from "axios";
 import { configure } from "axios-hooks";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import PageLayout from "./components/PageLayout";
 import CourseList from "./pages/CourseList";
 import CourseForm from "./pages/CourseForm";
@@ -26,7 +26,7 @@ function App() {
     });
     return (
       <Routes>
-        <Route path="/" element={<SectionList />} />
+        <Route path="/" element={<Navigate to="/sections" />} />
         <Route path="/sections" element={<SectionList />} />
         <Route path="/sections/new" element={<SectionForm />} />
         <Route path="/courses" element={<CourseList />} />
