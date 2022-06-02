@@ -32,7 +32,7 @@ const LeftMenu = ({ drawerWidth }) => (
       </ListItem>
       <ListItem disablePadding>
         <ListItemButton component={Link} to="/courses">
-          <ListItemText primary="Courses" />
+          <ListItemText primary="Cours" />
         </ListItemButton>
       </ListItem>
     </List>
