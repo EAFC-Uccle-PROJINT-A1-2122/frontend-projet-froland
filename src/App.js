@@ -41,8 +41,4 @@ function App() {
   );
 }
 
-const NotAuthenticated = () => (
-  <p>Vous devez vous connecter pour accéder à cette application.</p>
-);
-
 export default App;
