@@ -22,7 +22,7 @@ const SectionForm = () => {
     <EntityForm
       listRoute="/sections"
       title="Nouvelle section"
-      loading={loading}
+      disabled={loading}
       error={error}
       onSubmit={handleSubmit}
     >
@@ -33,6 +33,8 @@ const SectionForm = () => {
         value={sectionName}
         onChange={handleChange}
         disabled={loading}
+        required={true}
+        autoFocus={true}
       />
     </EntityForm>
   );
