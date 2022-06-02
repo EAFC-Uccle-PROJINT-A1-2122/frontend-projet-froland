@@ -2,6 +2,7 @@ import { Alert, Button, Stack, TextField } from "@mui/material";
 import useAxios from "axios-hooks";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import PageLayout from "./PageLayout";
 
 const SectionForm = () => {
   const [{ loading, error }, postData] = useAxios(
@@ -23,34 +24,35 @@ const SectionForm = () => {
     });
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <Stack spacing={2}>
-        <h2>Nouvelle section</h2>
-        <TextField
-          id="outlined-basic"
-          label="Nom de la section"
-          variant="outlined"
-          value={sectionName}
-          onChange={handleChange}
-          disabled={loading}
-        />
-        <Stack direction="row" spacing={1}>
-          <Button variant="contained" type="submit" disabled={loading}>
-            Créer
-          </Button>
-          <Button
+    <PageLayout title="Nouvelle section">
+      <form onSubmit={handleSubmit}>
+        <Stack spacing={2}>
+          <TextField
+            id="outlined-basic"
+            label="Nom de la section"
             variant="outlined"
-            onClick={() => {
-              navigate("/sections");
-            }}
+            value={sectionName}
+            onChange={handleChange}
             disabled={loading}
-          >
-            Annuler
-          </Button>
+          />
+          <Stack direction="row" spacing={1}>
+            <Button variant="contained" type="submit" disabled={loading}>
+              Créer
+            </Button>
+            <Button
+              variant="outlined"
+              onClick={() => {
+                navigate("/sections");
+              }}
+              disabled={loading}
+            >
+              Annuler
+            </Button>
+          </Stack>
+          {error && <Alert severity="error">Une erreur s'est produite</Alert>}
         </Stack>
-        {error && <Alert severity="error">Une erreur s'est produite</Alert>}
-      </Stack>
-    </form>
+      </form>
+    </PageLayout>
   );
 };
 

@@ -1,9 +1,9 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import { Container, Stack } from "@mui/material";
+import { Alert } from "@mui/material";
 import Axios from "axios";
 import { configure } from "axios-hooks";
-import { Routes, Route } from "react-router-dom";
-import MenuBar from "./components/MenuBar";
+import { Route, Routes } from "react-router-dom";
+import PageLayout from "./pages/PageLayout";
 import SectionForm from "./pages/SectionForm";
 import SectionList from "./pages/SectionList";
 
@@ -22,23 +22,22 @@ function App() {
       };
       configure({ axios, defaultOptions });
     });
+    return (
+      <Routes>
+        <Route path="/" element={<SectionList />} />
+        <Route path="/sections" element={<SectionList />} />
+        <Route path="/sections/new" element={<SectionForm />} />
+      </Routes>
+    );
+  } else {
+    return (
+      <PageLayout title="Gestion des présences">
+        <Alert severity="info">
+          Vous devez vous connecter pour accéder au reste de l'application.
+        </Alert>
+      </PageLayout>
+    );
   }
-  return (
-    <Stack>
-      <MenuBar />
-      <Container maxWidth="md">
-        {isAuthenticated ? (
-          <Routes>
-            <Route path="/" element={<SectionList />} />
-            <Route path="/sections" element={<SectionList />} />
-            <Route path="/sections/new" element={<SectionForm />} />
-          </Routes>
-        ) : (
-          <p>Vous devez vous connecter.</p>
-        )}
-      </Container>
-    </Stack>
-  );
 }
 
 export default App;
