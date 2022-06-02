@@ -1,3 +1,5 @@
+import { useAuth0 } from "@auth0/auth0-react";
+import MenuIcon from "@mui/icons-material/Menu";
 import {
   AppBar,
   Box,
@@ -6,8 +8,6 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-import { useAuth0 } from "@auth0/auth0-react";
 
 const MenuBar = () => {
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
@@ -25,7 +25,7 @@ const MenuBar = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
+            Gestion des présences
           </Typography>
           {isAuthenticated ? (
             <Button color="inherit" onClick={() => logout()}>
