@@ -3,7 +3,7 @@ import { Alert } from "@mui/material";
 import Axios from "axios";
 import { configure } from "axios-hooks";
 import { Route, Routes } from "react-router-dom";
-import PageLayout from "./pages/PageLayout";
+import PageLayout from "./components/PageLayout";
 import SectionForm from "./pages/SectionForm";
 import SectionList from "./pages/SectionList";
 

@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import useAxios from "axios-hooks";
 import { Link } from "react-router-dom";
-import PageLayout from "./PageLayout";
+import PageLayout from "../components/PageLayout";
 
 const SectionList = () => {
   const [{ data, loading, error }] = useAxios("/sections");

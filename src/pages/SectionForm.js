@@ -2,7 +2,7 @@ import { Alert, Button, Stack, TextField } from "@mui/material";
 import useAxios from "axios-hooks";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import PageLayout from "./PageLayout";
+import PageLayout from "../components/PageLayout";
 
 const SectionForm = () => {
   const [{ loading, error }, postData] = useAxios(
