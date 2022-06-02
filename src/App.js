@@ -4,6 +4,8 @@ import Axios from "axios";
 import { configure } from "axios-hooks";
 import { Route, Routes } from "react-router-dom";
 import PageLayout from "./components/PageLayout";
+import CourseList from "./pages/CourseList";
+import CourseForm from "./pages/CourseForm";
 import SectionForm from "./pages/SectionForm";
 import SectionList from "./pages/SectionList";
 
@@ -27,6 +29,8 @@ function App() {
         <Route path="/" element={<SectionList />} />
         <Route path="/sections" element={<SectionList />} />
         <Route path="/sections/new" element={<SectionForm />} />
+        <Route path="/courses" element={<CourseList />} />
+        <Route path="/courses/new" element={<CourseForm />} />
       </Routes>
     );
   } else {
