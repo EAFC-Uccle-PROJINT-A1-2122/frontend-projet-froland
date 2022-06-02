@@ -1,8 +1,7 @@
-import { Alert, Button, Stack, TextField } from "@mui/material";
+import { TextField } from "@mui/material";
 import useAxios from "axios-hooks";
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import PageLayout from "../components/PageLayout";
+import EntityForm from "../components/EntityForm";
 
 const CourseForm = () => {
   const [{ loading, error }, postData] = useAxios(
@@ -12,47 +11,30 @@ const CourseForm = () => {
     },
     { manual: true }
   );
-  const navigate = useNavigate();
-  const [sectionName, setSectionName] = React.useState("");
+  const [courseName, setCourseName] = React.useState("");
   const handleChange = (event) => {
-    setSectionName(event.target.value);
+    setCourseName(event.target.value);
   };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    postData({ data: { name: sectionName } }).then(() => {
-      navigate("/courses");
-    });
+  const handleSubmit = () => {
+    return postData({ data: { name: courseName } });
   };
   return (
-    <PageLayout title="Nouveau cours">
-      <form onSubmit={handleSubmit}>
-        <Stack spacing={2}>
-          <TextField
-            id="outlined-basic"
-            label="Nom de l'unité d'enseignement"
-            variant="outlined"
-            value={sectionName}
-            onChange={handleChange}
-            disabled={loading}
-          />
-          <Stack direction="row" spacing={1}>
-            <Button variant="contained" type="submit" disabled={loading}>
-              Créer
-            </Button>
-            <Button
-              variant="outlined"
-              onClick={() => {
-                navigate("/sections");
-              }}
-              disabled={loading}
-            >
-              Annuler
-            </Button>
-          </Stack>
-          {error && <Alert severity="error">Une erreur s'est produite</Alert>}
-        </Stack>
-      </form>
-    </PageLayout>
+    <EntityForm
+      listUrl="/courses"
+      title="Nouveau cours"
+      loading={loading}
+      error={error}
+      onSubmit={handleSubmit}
+    >
+      <TextField
+        id="outlined-basic"
+        label="Nom de l'unité d'enseignement"
+        variant="outlined"
+        value={courseName}
+        onChange={handleChange}
+        disabled={loading}
+      />
+    </EntityForm>
   );
 };
 
