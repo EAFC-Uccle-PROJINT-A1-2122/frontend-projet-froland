@@ -20,7 +20,7 @@ const CourseForm = () => {
   };
   return (
     <EntityForm
-      listUrl="/courses"
+      listRoute="/courses"
       title="Nouveau cours"
       loading={loading}
       error={error}

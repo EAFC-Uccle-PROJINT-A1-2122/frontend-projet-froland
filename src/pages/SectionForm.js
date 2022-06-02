@@ -20,7 +20,7 @@ const SectionForm = () => {
   };
   return (
     <EntityForm
-      listUrl="/sections"
+      listRoute="/sections"
       title="Nouvelle section"
       loading={loading}
       error={error}

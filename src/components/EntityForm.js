@@ -3,7 +3,14 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import PageLayout from "../components/PageLayout";
 
-const EntityForm = ({ loading, error, onSubmit, listUrl, title, children }) => {
+const EntityForm = ({
+  loading,
+  error,
+  onSubmit,
+  listRoute,
+  title,
+  children,
+}) => {
   const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -24,7 +31,7 @@ const EntityForm = ({ loading, error, onSubmit, listUrl, title, children }) => {
             <Button
               variant="outlined"
               LinkComponent={Link}
-              to={listUrl}
+              to={listRoute}
               disabled={loading}
             >
               Annuler
