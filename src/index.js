@@ -13,7 +13,6 @@ root.render(
     clientId="0JOX2y9JLWe7jzuXIBqRIPWZGOCF9X2A"
     redirectUri={window.location.origin}
     audience={process.env.REACT_APP_API_BASE_URL}
-    scope="admin:courses admin:people admin:attendance"
   >
     <BrowserRouter>
       <React.StrictMode>
