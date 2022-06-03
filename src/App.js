@@ -14,10 +14,9 @@ function App() {
 
   if (isAuthenticated) {
     getAccessTokenSilently().then((token) => {
-      const headers = { Authorization: `Bearer ${token}` };
       const axios = Axios.create({
         baseURL: process.env.REACT_APP_API_BASE_URL,
-        headers: headers,
+        headers: { authorization: `Bearer ${token}` },
       });
       const defaultOptions = {
         useCache: false,
