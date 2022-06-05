@@ -15,7 +15,7 @@ function App() {
   if (isAuthenticated) {
     getAccessTokenSilently().then((token) => {
       const axios = Axios.create({
-        baseURL: process.env.REACT_APP_API_BASE_URL,
+        baseURL: "/api/v1",
         headers: { authorization: `Bearer ${token}` },
       });
       const defaultOptions = {

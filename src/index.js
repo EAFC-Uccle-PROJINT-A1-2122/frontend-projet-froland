@@ -9,10 +9,10 @@ import reportWebVitals from "./reportWebVitals";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Auth0Provider
-    domain="projint-froland-dev.eu.auth0.com"
-    clientId="0JOX2y9JLWe7jzuXIBqRIPWZGOCF9X2A"
+    domain={process.env.REACT_APP_AUTH0_DOMAIN}
+    clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
     redirectUri={window.location.origin}
-    audience={process.env.REACT_APP_API_BASE_URL}
+    audience={process.env.REACT_APP_AUTH0_AUDIENCE}
     scope="admin:courses admin:people admin:attendance"
   >
     <BrowserRouter>
